@@ -29,7 +29,30 @@
   position: relative;
   text-decoration: none;
 }
+.animate-hover {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+.animate-hover:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
 
+.glow-circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(66,165,245,0.3), transparent 70%);
+  border-radius: 50%;
+  top: -40px;
+  left: calc(50% - 100px);
+  z-index: 0;
+}
+
+.guest-card * {
+  position: relative;
+  z-index: 1;
+}
 .hover-underline::after {
   content: '';
   position: absolute;
@@ -48,12 +71,7 @@
     color: #000000 !important;
   }
 
-    .guest-card img {
-      border-radius: 50%;
-      height: 100px;
-      width: 100px;
-      object-fit: cover;
-    }
+    
     .nav-link {
       color: #fff;
     }
@@ -163,22 +181,25 @@
       <li style="--accent-color: #FF6F00">
         <div class="icon"><i class="fa-solid fa-clipboard-list">‌</i></div>
         <div class="title">Grievance Redressal</div>
-        <div class="descr">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</div>
+        <div class="descr">Dedicated counters will be set up to assist pensioners with registration, pension-related anomalies, 
+          grievance redressal, and on-the-spot solution of any kind of pension realted problem.
+        </div>
       </li>
       <li style="--accent-color: #008DC2">
         <div class="icon"><i class="fa-solid fa-gift">‌</i></div>
         <div class="title">Felicitation Program </div>
-        <div class="descr">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</div>
+        <div class="descr"> Felicitation of super senior citizen, war veteran/widow by Dignitaries.</div>
       </li>
       <li style="--accent-color: #0B456A">
         <div class="icon"><i class="fa-solid fa-handshake-simple">‌</i></div>
         <div class="title">Interaction with Dignitaries</div>
-        <div class="descr">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</div>
+        <div class="descr">Interaction of pensioners with Dignitaries regsrding SPARSH and pension.</div>
       </li>
       <li style="--accent-color: #6A829A">
         <div class="icon"><i class="fa-solid fa-repeat">‌</i></div>
         <div class="title"> Feedback & Suggestions</div>
-        <div class="descr">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</div>
+        <div class="descr">Opportunity to provide feedback of SPARSH, genuine
+          suggestion and something to improve in SPARSH</div>
       </li>
   
     </ol>
@@ -260,29 +281,40 @@
     </section>
   
 
-  <!-- Guests -->
-  <section id="guests" class="bg-light py-5">
-    <div class="container">
-      <h1 class="text-center mb-5">Chief Guests</h1>
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-4">
-          <div class="card text-center guest-card p-3">
-            <img src="guest1.jpg" alt="Dr. A. P. Sharma" class="mx-auto mb-3">
-            <h5>Dr. A. P. Sharma</h5>
-            <p class="text-muted">Director, National Innovation Center</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card text-center guest-card p-3">
-            <img src="guest2.jpg" alt="Ms. Ritu Verma" class="mx-auto mb-3">
-            <h5>Ms. Ritu Verma</h5>
-            <p class="text-muted">Founder, ChangeMakers NGO</p>
-          </div>
+<!-- Chief Guests -->
+<section id="guests" class="py-5" style="background: none; color: rgb(0, 0, 0);">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5" style="font-size: 2.7rem;">🌟 Chief Guests 🌟</h2>
+
+    <div class="row g-4 justify-content-center">
+      
+      <!-- Guest 1 -->
+      <div class="col-md-4">
+        <div class="card border-0 text-center shadow-lg p-4 guest-card-vibrant h-100 bg-white text-dark position-relative overflow-hidden">
+        
+          <img src="np.png" alt="Dr. Naveen Prakash" class="rounded-circle mx-auto mb-3 border border-3 border-primary" style="height: 140px; width: 140px; object-fit: cover;">
+          <h5 class="fw-bold text-primary">Dr. Naveen Prakash</h5>
+          <p class="text-muted mb-0">Director, National Innovation Center</p>
         </div>
       </div>
-    </div>
-  </section>
 
+      <!-- Guest 2 -->
+      <div class="col-md-4">
+        <div class="card border-0 text-center shadow-lg p-4 guest-card-vibrant h-100 bg-white text-dark position-relative overflow-hidden">
+        
+          <img src="np2.jpeg" alt="Mr. N. Prakash" class="rounded-circle mx-auto mb-3 border border-3 border-success" style="height: 140px; width: 140px; object-fit: cover;">
+          <h5 class="fw-bold text-success">Mr. N. Prakash</h5>
+          <p class="text-muted mb-0">Founder, ChangeMakers NGO</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+ 
   <section id="schedule" class="py-5 text-black">
     <div class="container">
       
