@@ -127,6 +127,18 @@
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
+
+  .slide {
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #000; /* fallback if aspect ratio leaves gaps */
+  }
+
+  .hero {
+    height: 50vh; /* adjust height for better view on mobile */
+  }
+  
   .hero-text {
     padding: 1.5rem 2rem;
     max-width: 85%;
