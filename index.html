@@ -16,82 +16,41 @@
       height: 40px;
     }
     
-
-    /* .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
-              url('pension1.png') center/cover no-repeat;
-  color: white;
-  text-align: center;
-  padding: 150px 20px;
-} */
-
-
-
-/* .hero {
-  height: 60vh;
-  background: 
-  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-  url('pension1.png') no-repeat center center/cover;
+    .hero {
   position: relative;
-  color: rgb(255, 255, 255);
-  padding: 0;
-} */
-
-
-
-.hero {
-  position: relative;
-  height: 70vh;
   width: 100%;
+  height: 70vh;
   overflow: hidden;
 }
 
 .slideshow {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
   z-index: 1;
 }
 
 .slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
   width: 100%;
-  background-size: cover;
-  background-position: center;
+  height: 100%;
   opacity: 0;
-  animation: slideAnimation 12s infinite;
+  transition: opacity 1s ease-in-out;
 }
 
-.slide1 {
-  background-image: url('banner2.jpg');
-  animation-delay: 0s;
-}
-.slide2 {
-  background-image: url('ban4.jpg');
-  animation-delay: 3s;
-}
-.slide3 {
-  background-image: url('ban2.jpg');
-  animation-delay: 6s;
+.slide.active {
+  opacity: 1;
 }
 
-.slide4 {
-  background-image: url('pension.jpg');
-  animation-delay: 9s;
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@keyframes slideAnimation {
-  0% { opacity: 0; }
-  5% { opacity: 1; }
-  30% { opacity: 1; }
-  35% { opacity: 0; }
-  100% { opacity: 0; }
-}
+
+
+
 .hero-text {
   position: absolute;
   top: 50%;
@@ -100,46 +59,33 @@
   z-index: 2;
   text-align: center;
   color: white;
-  padding: 2rem 3rem;
-  background: rgba(0, 0, 0, 0.3); /* semi-transparent background */
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 2rem;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   max-width: 90%;
   width: auto;
 }
 
-.hero-text h1 {
-  font-size: 3rem; /* Large font size for desktops */
-  font-weight: bold;
-  line-height: 1.2;
-  margin: 0;
-  text-transform: uppercase;
-  white-space: normal; /* Allow text to break and wrap */
-  overflow-wrap: break-word; /* Allow long words to break properly */
-}
-
 .hero-text h2 {
-  font-size: 2.5rem; /* Smaller font size for h2 */
-  font-weight: bold;
-  line-height: 1.4;
-  margin-top: 1rem;
-}
-
-/* Mobile adjustments */
+    font-size: 3rem;
+  }
+/* Mobile-friendly tweaks */
 @media (max-width: 768px) {
+  .hero {
+    min-height: 50vh;
+  }
 
-  
-  .hero-text {
-    padding: 1.5rem 2rem;
-    max-width: 85%;
+  .slide img {
+    object-fit: cover; /* ← keep it same as desktop for full coverage */
+    object-position: top; /* Or whatever you prefer */
   }
 
   .hero-text h1 {
-    font-size: 2.2rem; /* Adjust font size for mobile */
+    font-size: 1.5rem;
   }
 
   .hero-text h2 {
-    font-size: 1.2rem; /* Adjust font size for h2 on mobile */
+    font-size: 1rem;
   }
 }
 
@@ -224,6 +170,27 @@
       padding: 20px 0;
     }
   </style>
+  
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    if (slides.length === 0) {
+      console.error("No slides found!");
+      return;
+    }
+
+    function showSlide() {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+      index = (index + 1) % slides.length;
+    }
+
+    setInterval(showSlide, 2000); // every 5 seconds
+  });
+</script>
+  </script>
 </head>
 <body>
 
@@ -279,14 +246,23 @@
 
 <section class="hero">
   <div class="slideshow">
-    <div class="slide slide1"></div>
-    <div class="slide slide2"></div>
-    <div class="slide slide3"></div>
-    <div class="slide slide4"></div>
+    <div class="slide active">
+      <img src="ban2.jpg" alt="Banner 1" />
+    </div>
+    <div class="slide">
+     
+      <img src="banner2.jpg" alt="Banner 2" />
+    </div>
+    <div class="slide">
+      <img src="ban4.jpg" alt="Banner 3" />
+    </div>
+    <div class="slide">
+      <img src="pension1.png" alt="Banner 4" />
+    </div>
   </div>
 
   <div class="hero-text">
-    <h1 class="display-4 fw-bold ">Welcome To Sparsh Outreach Program</h1>
+    <h1 class="display-4 fw-bold">Welcome To Sparsh Outreach Program</h1>
     <h2 class="text-warning">"MEERUT KA SPARSH"</h2>
   </div>
 </section>
