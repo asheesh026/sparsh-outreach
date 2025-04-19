@@ -16,6 +16,67 @@
       height: 40px;
     }
     
+
+    .important-card {
+    background: linear-gradient(135deg, #000000, #1c1c1c);
+    border: 3px solid #ffc107;
+    box-shadow: 0 0 20px 5px #ffc107;
+    position: relative;
+    animation: glow 1.5s infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 15px #ffc107, 0 0 30px #ffc107;
+    }
+    to {
+      box-shadow: 0 0 25px #ffeb3b, 0 0 40px #ffeb3b;
+    }
+  }
+
+  .important-icon {
+    animation: pulse 1.8s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+  }
+
+  .ribbon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #dc3545;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    transform: rotate(10deg);
+    z-index: 2;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .download-bounce {
+    animation: bounce 1.2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
     .hero {
   position: relative;
   width: 100%;
@@ -318,6 +379,42 @@
         <p class="text-center text-black mb-5">Please ensure you bring the following original documents for smooth verification and processing:</p>
         
         <div class="row g-4 justify-content-center">
+
+
+ 
+         
+<!-- Pensioner Grievance Form -->
+<div class="col-md-6 col-lg-4">
+  <div class="card text-white shadow h-100 important-card">
+    <div class="ribbon">Important</div>
+    <div class="card-body d-flex align-items-center">
+      <i class="bi bi-file-earmark-arrow-down-fill text-warning fs-1 me-3 important-icon"></i>
+      <div>
+        <h5 class="card-title mb-1">Grievance Form for Family & Senior Pensioner(above 80 Years) </h5>
+        <a href="docs/Family_and_senrior_penionser_Form.docx" download class="btn btn-warning btn-sm mt-2 download-bounce">
+          <i class="bi bi-download me-1"></i>Download Form
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Family and Senior Pensioner Form -->
+<div class="col-md-6 col-lg-4">
+  <div class="card text-white shadow h-100 important-card">
+    <div class="ribbon">Important</div>
+    <div class="card-body d-flex align-items-center">
+      <i class="bi bi-file-earmark-arrow-down-fill text-info fs-1 me-3 important-icon"></i>
+      <div>
+        <h5 class="card-title mb-1">Grievance Form for other Pensioners </h5>
+        <a href="docs/penionser_Grievance_Form.docx" download class="btn btn-info btn-sm mt-2 download-bounce">
+          <i class="bi bi-download me-1"></i>Download Form
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
           <!-- Item -->
           <div class="col-md-6 col-lg-4">
             <div class="card bg-dark text-white border-0 shadow h-100">
