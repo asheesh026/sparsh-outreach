@@ -120,33 +120,30 @@
   z-index: 2;
   text-align: center;
   color: white;
-  background: rgba(0, 0, 0, 0.1);
   padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.4); /* subtle semi-transparent box */
   border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   max-width: 90%;
   width: auto;
 }
 
-.hero-text h2 {
-    font-size: 3rem;
-  }
-/* Mobile-friendly tweaks */
+/* Text sizing */
+.hero-text h1, .hero-text h2 {
+  margin: 0.5rem 0;
+  line-height: 1.3;
+  overflow-wrap: break-word;
+}
+
+/* Mobile-specific tweaks */
 @media (max-width: 768px) {
-  .hero {
-    min-height: 50vh;
+  .hero-text {
+    padding: 1rem 1.5rem;
+    max-width: 95%;
   }
 
-  .slide img {
-    object-fit: cover; /* ← keep it same as desktop for full coverage */
-    object-position: top; /* Or whatever you prefer */
-  }
-
-  .hero-text h1 {
-    font-size: 3rem;
-  }
-
-  .hero-text h2 {
-    font-size: 2.8rem;
+  .hero-text h1, .hero-text h2 {
+    font-size: 1.4rem; /* More readable on mobile */
   }
 }
 
@@ -233,6 +230,10 @@
   </style>
   
     <script>
+
+function changeLanguage(lang) {
+    window.location.href = lang;
+  }
   document.addEventListener("DOMContentLoaded", () => {
     const slides = document.querySelectorAll('.slide');
     let index = 0;
@@ -254,25 +255,35 @@
   </script>
 </head>
 <body>
-
-  <div class="top-bar d-flex align-items-center justify-content-between px-4 py-2" style="background-color: white; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+  <div class="language-bar d-flex justify-content-end align-items-center px-2 py-1" style="background-color: #ffffff;">
+    <select onchange="changeLanguage(this.value)" class="form-select form-select-sm w-auto" style="font-size: 0.9rem; padding: 4px 12px; min-width: 120px; border-radius: 4px;">
+      <option value="index.html" selected>हिंदी</option>
+      <option value="indexe.html">English</option>
+    </select>
+  </div>
   
-    <!-- Left Side: Logo and Title -->
-    <div class="d-flex align-items-center gap-3">
-      <img src="logo_new_1_hd.png" class="logo-pulse" style="height: 85px;" alt="Office Logo">
-      <div class="d-flex flex-column">
-        <h1 class="mb-0 fw-bold text-primary" style="font-size: 2.8rem;">MEERUT KA SPARSH</h1>
-        <small class="text-muted" style="font-size: 0.7rem;">RIGHT PENSION AT RIGHT TIME</small>
+  <!-- Top Bar with Logos -->
+  <div class="top-bar px-4 py-2" style="background-color: #ffffff; ">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+  
+      <!-- Left: Logo and Title -->
+      <div class="d-flex align-items-center gap-3">
+        <img src="logo_new_1_hd.png" class="logo-pulse" style="height: 85px;" alt="Office Logo">
+        <div class="d-flex flex-column">
+          <h1 class="mb-0 fw-bold text-primary" style="font-size: clamp(1.5rem, 4vw, 2.8rem);">
+            मेरठ का स्पर्श
+          </h1>
+          <small class="text-muted" style="font-size: 0.7rem;">सही समय पर सही पेंशन</small>
+        </div>
       </div>
-    </div>
   
-    <!-- Right Side: DAD Logo -->
-    <div>
-     
-      <img src="dad_logo.png"  height="85" alt="DAD Logo">
+      <!-- Right: DAD Logo -->
+      <div>
+        <img src="dad_logo.png" height="85" alt="DAD Logo">
+      </div>
+  
     </div>
   </div>
- 
  
 <!-- Top Blue Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #007bff;">
@@ -284,19 +295,19 @@
     <div class="collapse navbar-collapse justify-content-center" id="topNavbar">
       <ul class="navbar-nav gap-3 ">
         <li class="nav-item">
-          <a class="nav-link fw-bold hover-underline text-warning" href="#about">About</a>
+          <a class="nav-link fw-bold hover-underline " href="#about">परिचय</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold hover-underline text-warning" href="#guests">Chief Guests</a>
+          <a class="nav-link fw-bold hover-underline " href="#guests">मुख्य अतिथि</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold hover-underline text-warning" href="#schedule">Schedule</a>
+          <a class="nav-link fw-bold hover-underline " href="#schedule">कार्यक्रम</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold hover-underline text-warning" href="#pensioners">Pensioners</a>
+          <a class="nav-link fw-bold hover-underline " href="#pensioners">पेंशनधारक</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold hover-underline text-warning" href="#contact">Contact</a>
+          <a class="nav-link fw-bold hover-underline" href="#contact">संपर्क करें</a>
         </li>
       </ul>
     </div>
@@ -323,172 +334,186 @@
   </div>
 
   <div class="hero-text">
-    <h1 class="display-4 fw-bold">Welcome To Sparsh Outreach Program</h1>
-    <h2 class="text-warning">"MEERUT KA SPARSH"</h2>
+    <h1 class="display-4 fw-bold">स्पर्श आउटरीच कार्यक्रम </h1>
+    <h2 class="display-4 fw-bold text-warning">"मेरठ का स्पर्श"</h2>
+    <h1 class="display-4 fw-bold">में आपका स्वागत है</h1>
+
   </div>
 </section>
 
   <!-- About -->
   <section id="about" class="py-5">
     <div class="container text-center">
-      <h1 class="mb-5"> <b>About Sparsh Outreach Program</b></h1>
+      <h1 class="mb-5"> <b>स्पर्श आउटरीच कार्यक्रम के बारे में</b></h1>
+      <div class="d-inline-block px-4 py-2 rounded-pill shadow" style="background-color: #ffc107; color: #001f3f; font-weight: bold; font-size: 1.2rem;">
+        <b>स्थान-</b> <a  href="#contact">CDA (Army) ऑफिस, बेल्वेडियर कॉम्प्लेक्स, आयुधपथ, मेरठ छावनी, उत्तर प्रदेश – 250001</a><br>
+        <b>तारीख-</b>गुरुवार, 01 मई 2025
+      </div>
+      <br><br><br>
       <p class="lead">
-        
-        The SPARSH Outreach Program is an initiative by the  CGDA & CDA(Army) Meerut to address the needs and grievances of defence pensioners 
-        and their families, particularly those covered by the SPARSH (System for Pension Administration RAKSHA) system. 
-        This is designed to provide a platform for pensioners to interact with relevant authorities, resolve issues related to their pensions, and access various support services. 
-      
+        स्पर्श आउटरीच कार्यक्रम, सीजीडीए एवं सीडीए (सेना) मेरठ द्वारा रक्षा पेंशनभोगियों और उनके परिवारों की आवश्यकताओं और शिकायतों को दूर करने के लिए शुरू की गई एक पहल है, 
+        विशेष रूप से उन लोगों के लिए जो स्पर्श (System for Pension Administration-'RAKSHA') प्रणाली के अंतर्गत आते हैं। 
+        इसका उद्देश्य पेंशनभोगियों को संबंधित अधिकारियों से संवाद करने, अपनी पेंशन से जुड़ी समस्याओं का समाधान पाने, 
+        और विभिन्न सहायता सेवाओं तक पहुँच प्राप्त करने के लिए एक मंच प्रदान करना है।
       </p>
+      
     </div>
   </section>
 
 
   <section id="pensioners">
-    <h1><b>Services to the Pensioners</b></h1>
+    <h1><b>पेंशनधारकों के लिए सेवाएं</b></h1>
     <ol>
       <li style="--accent-color: #FF6F00">
         <div class="icon"><i class="fa-solid fa-clipboard-list">‌</i></div>
-        <div class="title">Grievance Redressal</div>
-        <div class="descr">Dedicated counters will be set up to assist pensioners with registration, pension-related anomalies, 
-          grievance redressal, and on-the-spot solution of any kind of pension realted problem.
+        <div class="title">शिकायत निवारण</div>
+        <div class="descr">
+          पेंशनधारकों की सहायता के लिए समर्पित काउंटर लगाए जाएंगे, जहाँ पंजीकरण, पेंशन से संबंधित त्रुटियों, 
+          शिकायत निवारण और किसी भी प्रकार की पेंशन संबंधित समस्या का तत्काल समाधान किया जाएगा।
         </div>
       </li>
       <li style="--accent-color: #008DC2">
         <div class="icon"><i class="fa-solid fa-gift">‌</i></div>
-        <div class="title">Felicitation Program </div>
-        <div class="descr"> Felicitation of super senior citizen, war veteran/widow by Dignitaries.</div>
+        <div class="title">सम्मान समारोह</div>
+        <div class="descr">वरिष्ठ नागरिकों, युद्ध वीरों/वीर नारियों का गणमान्य व्यक्तियों द्वारा सम्मान ।</div>
       </li>
       <li style="--accent-color: #0B456A">
         <div class="icon"><i class="fa-solid fa-handshake-simple">‌</i></div>
-        <div class="title">Interaction with Dignitaries</div>
-        <div class="descr">Interaction of pensioners with Dignitaries regsrding SPARSH and pension.</div>
+        <div class="title">गणमान्य व्यक्तियों से संवाद</div>
+        <div class="descr">पेंशन और स्पर्श से संबंधित विषयों पर पेंशनधारकों का गणमान्य व्यक्तियों के साथ संवाद होगा।</div>
       </li>
       <li style="--accent-color: #6A829A">
         <div class="icon"><i class="fa-solid fa-repeat">‌</i></div>
-        <div class="title"> Feedback & Suggestions</div>
-        <div class="descr">Opportunity to provide feedback of SPARSH, genuine
-          suggestion and something to improve in SPARSH</div>
+        <div class="title">प्रतिक्रिया एवं सुझाव</div>
+        <div class="descr">स्पर्श के प्रति प्रतिक्रिया देने, उचित सुझाव देने और इसे बेहतर बनाने के अवसर उपलब्ध कराए जाएंगे।</div>
       </li>
-  
     </ol>
   </section>
     
-    <section id="documents" class="py-5" >
-      <div class="container">
-        <h1 class="text-center text-back mb-5">Document Needed For Grievance Redressal</h1>
-        <p class="text-center text-black mb-5">Please ensure you bring the following original documents for smooth verification and processing:</p>
-        
-        <div class="row g-4 justify-content-center">
-
-
- 
-         
-<!-- Pensioner Grievance Form -->
-<div class="col-md-6 col-lg-4">
-  <div class="card text-white shadow h-100 important-card">
-    <div class="ribbon">Important</div>
-    <div class="card-body d-flex align-items-center">
-      <i class="bi bi-file-earmark-arrow-down-fill text-warning fs-1 me-3 important-icon"></i>
-      <div>
-        <h5 class="card-title mb-1">Grievance Form for Family & Senior Pensioner(above 80 Years) </h5>
-        <a href="docs/Family_and_senrior_penionser_Form.docx" download class="btn btn-warning btn-sm mt-2 download-bounce">
-          <i class="bi bi-download me-1"></i>Download Form
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Family and Senior Pensioner Form -->
-<div class="col-md-6 col-lg-4">
-  <div class="card text-white shadow h-100 important-card">
-    <div class="ribbon">Important</div>
-    <div class="card-body d-flex align-items-center">
-      <i class="bi bi-file-earmark-arrow-down-fill text-info fs-1 me-3 important-icon"></i>
-      <div>
-        <h5 class="card-title mb-1">Grievance Form for other Pensioners </h5>
-        <a href="docs/penionser_Grievance_Form.docx" download class="btn btn-info btn-sm mt-2 download-bounce">
-          <i class="bi bi-download me-1"></i>Download Form
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-          <!-- Item -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card bg-dark text-white border-0 shadow h-100">
-              <div class="card-body d-flex align-items-center">
-                <i class="bi bi-person-badge-fill text-warning fs-1 me-3"></i>
-                <div>
-                  <h5 class="card-title mb-1">Aadhar Card</h5>
-                  <p class="card-text">Original Aadhar card for identity verification.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Item -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card bg-dark text-white border-0 shadow h-100">
-              <div class="card-body d-flex align-items-center">
-                <i class="bi bi-credit-card-2-front-fill text-info fs-1 me-3"></i>
-                <div>
-                  <h5 class="card-title mb-1">PAN Card</h5>
-                  <p class="card-text">PAN card for tax-related verification.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Item -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card bg-dark text-white border-0 shadow h-100">
-              <div class="card-body d-flex align-items-center">
-                <i class="bi bi-journal-bookmark-fill text-success fs-1 me-3"></i>
-                <div>
-                  <h5 class="card-title mb-1">Service Book</h5>
-                  <p class="card-text">Proof of service and employment record.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Item -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card bg-dark text-white border-0 shadow h-100">
-              <div class="card-body d-flex align-items-center">
-                <i class="bi bi-file-earmark-text-fill text-danger fs-1 me-3"></i>
-                <div>
-                  <h5 class="card-title mb-1">PPO</h5>
-                  <p class="card-text">Pension Payment Order document issued by authorities.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Item -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card bg-dark text-white border-0 shadow h-100">
-              <div class="card-body d-flex align-items-center">
-                <i class="bi bi-bank2 text-primary fs-1 me-3"></i>
-                <div>
-                  <h5 class="card-title mb-1">Bank Account Details</h5>
-                  <p class="card-text">Passbook or bank statement with account number and IFSC.</p>
-                </div>
+  <section id="documents" class="py-5">
+    <div class="container">
+      <h1 class="text-center text-back mb-5">शिकायत निवारण के लिए आवश्यक दस्तावेज</h1>
+      <p class="text-center text-black mb-5">कृपया सुनिश्चित करें कि आप निम्नलिखित मूल दस्तावेज़ों को प्रतिलिपि सहित सुगम सत्यापन और प्रसंस्करण के लिए लाएँ:</p>
+      
+      <div class="row g-4 justify-content-center">
+  
+        <!-- Pensioner Grievance Form -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card text-white shadow h-100 important-card">
+            <div class="ribbon">महत्वपूर्ण</div>
+            <div class="card-body d-flex align-items-center">
+              <i class="bi bi-file-earmark-arrow-down-fill text-warning fs-1 me-3 important-icon"></i>
+              <div>
+                <h5 class="card-title mb-1">परिवार और वरिष्ठ पेंशनधारक (80 वर्ष से ऊपर) के लिए शिकायत प्रपत्र</h5>
+                <a href="docs/Family_and_senrior_penionser_Form.pdf" download class="btn btn-warning btn-sm mt-2 download-bounce">
+                  <i class="bi bi-download me-1"></i>फॉर्म डाउनलोड करें
+                </a>
               </div>
             </div>
           </div>
         </div>
-    
+  
+        <!-- Family and Senior Pensioner Form -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card text-white shadow h-100 important-card">
+            <div class="ribbon">महत्वपूर्ण</div>
+            <div class="card-body d-flex align-items-center">
+              <i class="bi bi-file-earmark-arrow-down-fill text-info fs-1 me-3 important-icon"></i>
+              <div>
+                <h5 class="card-title mb-1">अन्य पेंशनधारकों के लिए शिकायत प्रपत्र</h5>
+                <a href="docs/penionser_Grievance_Form.pdf" download class="btn btn-info btn-sm mt-2 download-bounce">
+                  <i class="bi bi-download me-1"></i>फॉर्म डाउनलोड करें
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Item -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-dark text-white border-0 shadow h-100">
+            <div class="card-body d-flex align-items-center">
+              <i class="bi bi-person-badge-fill text-warning fs-1 me-3"></i>
+              <div>
+                <h5 class="card-title mb-1">आधार कार्ड</h5>
+                <p class="card-text">पहचान सत्यापन के लिए मूल आधार कार्ड।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Item -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-dark text-white border-0 shadow h-100">
+            <div class="card-body d-flex align-items-center">
+              <i class="bi bi-credit-card-2-front-fill text-info fs-1 me-3"></i>
+              <div>
+                <h5 class="card-title mb-1">PAN कार्ड</h5>
+                <p class="card-text">कर से संबंधित सत्यापन के लिए PAN कार्ड।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Item -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-dark text-white border-0 shadow h-100">
+            <div class="card-body d-flex align-items-center">
+              <i class="bi bi-journal-bookmark-fill text-success fs-1 me-3"></i>
+              <div>
+                <h5 class="card-title mb-1">डिस्चार्ज पुस्तिका</h5>
+                <p class="card-text">सेवा और रोजगार एवं डिस्चार्ज होने का प्रमाण।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Item -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-dark text-white border-0 shadow h-100">
+            <div class="card-body d-flex align-items-center">
+              <i class="bi bi-file-earmark-text-fill text-danger fs-1 me-3"></i>
+              <div>
+                <h5 class="card-title mb-1">पेंशन भुगतान आदेश (पी.पी.ओ.- PPO)</h5>
+                <p class="card-text">प्राधिकृत अधिकारियों द्वारा जारी पेंशन भुगतान आदेश दस्तावेज़।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Item -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-dark text-white border-0 shadow h-100">
+            <div class="card-body d-flex align-items-center">
+              <i class="bi bi-bank2 text-primary fs-1 me-3"></i>
+              <div>
+                <h5 class="card-title mb-1">बैंक खाता विवरण</h5>
+                <p class="card-text">खाता संख्या और IFSC के साथ पासबुक या बैंक स्टेटमेंट।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-black mb-5">फोन द्वारा रजिस्ट्रेशन  फार्म प्राप्त करने, जमा करने  एवं
+          इस कार्यक्रम हेतु टोकन नंबर प्राप्त करने के लिए रक्षा लेखा नियंत्रक (सेना) कार्यालय तथा रक्षा लेखा नियंत्रक
+           (पेंशन संवितरण) कार्यालय द्वारा प्रदत्त मोबाइल नंबर 
+           <a href="https://wa.me/918869817456?text=Hello%2C%20I%20would%20like%20to%20register%20for%20the%20event.%20Please%20provide%20the%20details.">8869817456</a> या 
+<a href="https://wa.me/918267817456?text=Hello%2C%20I%20would%20like%20to%20register%20for%20the%20event.%20Please%20provide%20the%20details.">8267817456</a>
+            पर व्हाट्सएप  करें I  </p>
+       <p class="text-center text-black mb-5">SPARSH पेंशनभोगियों/पारिवारिक पेंशनभोगियों (वीर नारियों) से
+        प्रार्थना हैं कि वे रजिस्ट्रेशन द्वारा टोकन प्राप्त कर नियत तिथि यथा दिनांक 01.05.2025  (समय प्रात: 09 बजे से) 
+        स्थान- <a  href="#contact">CDA (Army) ऑफिस, बेल्वेडियर कॉम्प्लेक्स, आयुधपथ, मेरठ छावनी, उत्तर प्रदेश – 250001</a> पर 
+         अधिक से अधिक संख्या में  प्रतिभाग कर पेंशन संबंधी समस्या का निवारण करवाएँ एवं
+           इस आयोजन का लाभ उठाए ।</p>
       </div>
-    </section>
+
+    </div>
+  </section>
   
 
 <!-- Chief Guests -->
 <section id="guests" class="py-5" style="background: none; color: rgb(0, 0, 0);">
   <div class="container">
-    <h2 class="text-center fw-bold mb-5" style="font-size: 2.7rem;">🌟 Chief Guests 🌟</h2>
+    <h2 class="text-center fw-bold mb-5" style="font-size: 2.7rem;">🌟 मुख्य अतिथि 🌟</h2>
 
     <div class="row g-4 justify-content-center">
       
@@ -497,8 +522,8 @@
         <div class="card border-0 text-center shadow-lg p-4 guest-card-vibrant h-100 bg-white text-dark position-relative overflow-hidden">
         
           <img src="p1.png" alt="ABC" class="rounded-circle mx-auto mb-3 border border-3 border-primary" style="height: 140px; width: 140px; object-fit: cover;">
-          <h5 class="fw-bold text-primary">Dr. ABC</h5>
-          <p class="text-muted mb-0">Director, National Innovation Center</p>
+          <h5 class="fw-bold text-primary">डॉ. एबीसी</h5>
+          <p class="text-muted mb-0">निदेशक, राष्ट्रीय नवाचार केंद्र</p>
         </div>
       </div>
 
@@ -507,8 +532,8 @@
         <div class="card border-0 text-center shadow-lg p-4 guest-card-vibrant h-100 bg-white text-dark position-relative overflow-hidden">
         
           <img src="p1.png" alt="DEF" class="rounded-circle mx-auto mb-3 border border-3 border-success" style="height: 140px; width: 140px; object-fit: cover;">
-          <h5 class="fw-bold text-success">Mr. DEF</h5>
-          <p class="text-muted mb-0">Founder, ChangeMakers NGO</p>
+          <h5 class="fw-bold text-success">श्री. डीईएफ</h5>
+          <p class="text-muted mb-0">संस्थापक, चेंजमेकर्स एनजीओ</p>
         </div>
       </div>
 
@@ -519,103 +544,103 @@
 
 
  
-  <section id="schedule" class="py-5 text-black">
-    <div class="container">
-      
+<section id="schedule" class="py-5 text-black">
+  <div class="container">
+    
 
-      <div class="text-center text-Black mb-4">
-        <h1 class="mb-3">Event Schedule</h1>
-        <div class="d-inline-block px-4 py-2 rounded-pill shadow" style="background-color: #ffc107; color: #001f3f; font-weight: bold; font-size: 1.2rem;">
-          <b>Place-</b> <a  href="#contact">CDA (Army) Office,Belvedere Complex,Ayudhpath, Meerut Cantt,Uttar Pradesh – 250001</a><br>
-          <b>Date-</b>Thursday, 01 May 2025
+    <div class="text-center text-Black mb-4">
+      <h1 class="mb-3">कार्यक्रम समय-सारणी</h1>
+      <div class="d-inline-block px-4 py-2 rounded-pill shadow" style="background-color: #ffc107; color: #001f3f; font-weight: bold; font-size: 1.2rem;">
+        <b>स्थान-</b> <a  href="#contact">CDA (Army) ऑफिस, बेल्वेडियर कॉम्प्लेक्स, आयुधपथ, मेरठ छावनी, उत्तर प्रदेश – 250001</a><br>
+        <b>तारीख-</b>गुरुवार, 01 मई 2025
+      </div>
+    </div>
+
+
+    <div class="row g-4">
+      <!-- Schedule Item -->
+      <div class="col-md-6">
+        <div class="card  text-black border-0 shadow-lg h-100">
+          <div class="card-body d-flex align-items-center">
+            <div class="me-4">
+              <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <strong>10:00</strong>
+              </div>
+            </div>
+            <div>
+              <h5 class="card-title">उद्घाटन एवं स्वागत भाषण</h5>
+              <p class="card-text">हमारे मेज़बानों द्वारा उद्घाटन समारोह, परिचय और सांस्कृतिक स्वागत।</p>
+            </div>
+          </div>
         </div>
       </div>
-
-
-      <div class="row g-4">
-        <!-- Schedule Item -->
-        <div class="col-md-6">
-          <div class="card  text-black border-0 shadow-lg h-100">
-            <div class="card-body d-flex align-items-center">
-              <div class="me-4">
-                <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                  <strong>10:00</strong>
-                </div>
+      <!-- Schedule Item -->
+      <div class="col-md-6">
+        <div class="card  text-black border-0 shadow-lg h-100">
+          <div class="card-body d-flex align-items-center">
+            <div class="me-4">
+              <div class="bg-info text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <strong>11:00</strong>
               </div>
-              <div>
-                <h5 class="card-title">Inauguration & Welcome Speech</h5>
-                <p class="card-text">Opening ceremony led by our hosts with introductions and cultural welcome.</p>
-              </div>
+            </div>
+            <div>
+              <h5 class="card-title">मुख्य वक्ता डॉ. ए. पी. शर्मा का संबोधन</h5>
+              <p class="card-text">नवाचार और युवा नेतृत्व पर एक प्रभावशाली भाषण।</p>
             </div>
           </div>
         </div>
-        <!-- Schedule Item -->
-        <div class="col-md-6">
-          <div class="card  text-black border-0 shadow-lg h-100">
-            <div class="card-body d-flex align-items-center">
-              <div class="me-4">
-                <div class="bg-info text-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                  <strong>11:00</strong>
-                </div>
+      </div>
+      <!-- Schedule Item -->
+      <div class="col-md-6">
+        <div class="card  text-black border-0 shadow-lg h-100">
+          <div class="card-body d-flex align-items-center">
+            <div class="me-4">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <strong>12:30</strong>
               </div>
-              <div>
-                <h5 class="card-title">Keynote by Dr. A. P. Sharma</h5>
-                <p class="card-text">A powerful keynote on innovation and youth leadership.</p>
-              </div>
+            </div>
+            <div>
+              <h5 class="card-title">पैनल चर्चा</h5>
+              <p class="card-text">हमारे विशिष्ट अतिथियों के साथ आउटरीच और परिवर्तन पर संवाद।</p>
             </div>
           </div>
         </div>
-        <!-- Schedule Item -->
-        <div class="col-md-6">
-          <div class="card  text-black border-0 shadow-lg h-100">
-            <div class="card-body d-flex align-items-center">
-              <div class="me-4">
-                <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                  <strong>12:30</strong>
-                </div>
+      </div>
+      <!-- Schedule Item -->
+      <div class="col-md-6">
+        <div class="card  text-black border-0 shadow-lg h-100">
+          <div class="card-body d-flex align-items-center">
+            <div class="me-4">
+              <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <strong>14:00</strong>
               </div>
-              <div>
-                <h5 class="card-title">Panel Discussion</h5>
-                <p class="card-text">Interactive discussion with our distinguished guests on outreach and change-making.</p>
-              </div>
+            </div>
+            <div>
+              <h5 class="card-title">नेटवर्किंग लंच</h5>
+              <p class="card-text">लंच का आनंद लें और अतिथियों, स्वयंसेवकों, और साथी छात्रों से मिलें।</p>
             </div>
           </div>
         </div>
-        <!-- Schedule Item -->
-        <div class="col-md-6">
-          <div class="card  text-black border-0 shadow-lg h-100">
-            <div class="card-body d-flex align-items-center">
-              <div class="me-4">
-                <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                  <strong>14:00</strong>
-                </div>
-              </div>
-              <div>
-                <h5 class="card-title">Networking Lunch</h5>
-                <p class="card-text">Enjoy lunch while connecting with guests, volunteers, and fellow students.</p>
+      </div>
+      <!-- Schedule Item -->
+      <div class="col-md-6 mx-auto">
+        <div class="card  text-black border-0 shadow-lg h-100">
+          <div class="card-body d-flex align-items-center">
+            <div class="me-4">
+              <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                <strong>15:30</strong>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- Schedule Item -->
-        <div class="col-md-6 mx-auto">
-          <div class="card  text-black border-0 shadow-lg h-100">
-            <div class="card-body d-flex align-items-center">
-              <div class="me-4">
-                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                  <strong>15:30</strong>
-                </div>
-              </div>
-              <div>
-                <h5 class="card-title">Workshops & Activities</h5>
-                <p class="card-text">Hands-on sessions, workshops, and breakout groups for interaction and learning.</p>
-              </div>
+            <div>
+              <h5 class="card-title">कार्यशालाएं और गतिविधियां</h5>
+              <p class="card-text">इंटरएक्टिव सत्र, कार्यशालाएं और ब्रेकआउट समूहों के लिए संवाद और सीखने का अवसर।</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
  
@@ -626,24 +651,26 @@
   
 
 
-  <section id="contact" class="py-5"">
+  <section id="contact" class="py-5">
     <div class="container text-center text-black">
-      <h1 class="mb-4"><b>Contact Us</b></h1>
-      <p class="text-black mb-5">We're happy to assist you with any queries.</p>
+      <h1 class="mb-4"><b>हमसे संपर्क करें</b></h1>
+      <p class="text-black mb-5">हम आपकी किसी भी शंका का समाधान करने के लिए खुश हैं।</p>
   
       <div class="row justify-content-center gy-4">
         <div class="col-md-4">
           <div class="d-flex flex-column align-items-center">
             <i class="bi bi-telephone-fill fs-2 text-warning mb-2"></i>
-            <h5 class="mb-1">Phone</h5>
-            <p class="mb-0">+91 98765 43210</p>
+            <h5 class="mb-1">फ़ोन</h5>
+            <p class="mb-0">+91  8869817456</p>
+            <p class="mb-0">+91  8267817456</p>
+            
           </div>
         </div>
   
         <div class="col-md-4">
           <div class="d-flex flex-column align-items-center">
             <i class="bi bi-envelope-fill fs-2 text-warning mb-2"></i>
-            <h5 class="mb-1">Email</h5>
+            <h5 class="mb-1">ईमेल</h5>
             <p class="mb-0">cdaarmymeerut.dad@nic.in</p>
           </div>
         </div>
@@ -651,34 +678,31 @@
         <div class="col-md-4">
           <div class="d-flex flex-column align-items-center">
             <i class="bi bi-geo-alt-fill fs-2 text-warning mb-2"></i>
-            <h5 class="mb-1">Visit Us</h5>
-            <p class="mb-0">CDA (Army) Office,<br>Belvedere Complex,<br>Ayudhpath, Meerut Cantt, Meerut<br>Uttar Pradesh – 250001</p>
+            <h5 class="mb-1">हमसे मिलें</h5>
+            <p class="mb-0">CDA (Army) ऑफिस,<br>बेल्वेडियर कॉम्प्लेक्स,<br>आयुधपथ, मेरठ छावनी, मेरठ<br>उत्तर प्रदेश – 250001</p>
           </div>
         </div>
       </div>
-  
-      <!-- Google Map -->
-      <div class="mt-5">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3489.603868784552!2d77.71450967530329!3d28.999107275466553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c651964d637a9%3A0x349a521af83fefc5!2sCDA%20(Army)%20Office!5e0!3m2!1sen!2sin!4v1744803964971!5m2!1sen!2sin" 
-          width="100%" 
-          height="350" 
-          style="border:0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
     </div>
-  </section>
+</section>
+<div class="mt-5">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3489.603868784552!2d77.71450967530329!3d28.999107275466553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c651964d637a9%3A0x349a521af83fefc5!2sCDA%20(Army)%20Office!5e0!3m2!1sen!2sin!4v1744803964971!5m2!1sen!2sin&hl=hi" 
+    width="100%" 
+    height="350" 
+    style="border:0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
 
-
-  <!-- Footer -->
-  <footer class="text-center">
-    <div class="container">
-      <p>&copy; 2025 Sparsh Outreach Program | Designed by the IT&S III Team</p>
-    </div>
-  </footer>
+ <!-- Footer -->
+<footer class="text-center">
+  <div class="container">
+    <p>&copy; 2025 स्पर्श आउटरीच कार्यक्रम | आईटी&एस III टीम द्वारा डिज़ाइन </p>
+  </div>
+</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
