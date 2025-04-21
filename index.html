@@ -49,6 +49,9 @@
     }
   }
 
+
+ 
+
   .ribbon {
     position: absolute;
     top: -10px;
@@ -143,7 +146,15 @@
   }
 
   .hero-text h1, .hero-text h2 {
-    font-size: 2.8rem; /* More readable on mobile */
+    font-size: 2.4rem; /* More readable on mobile */
+  }
+
+  .dad_logo {
+    height:50px;
+  }
+
+  .logo-pulse{
+    height:50px;
   }
 }
 
@@ -220,6 +231,14 @@
   animation: pulseZoom 8s ease-in-out infinite;
   height: 100%;
   transition: transform 0.8s ease;
+  height:80px;
+}
+
+.dad_logo {
+  animation: pulseZoom 8s ease-in-out infinite;
+  height: 100%;
+  transition: transform 0.8s ease;
+  height:80px;
 }
 
     footer {
@@ -268,7 +287,7 @@ function changeLanguage(lang) {
   
       <!-- Left: Logo and Title -->
       <div class="d-flex align-items-center gap-3">
-        <img src="logo_new_1_hd.png" class="logo-pulse" style="height: 85px;" alt="Office Logo">
+        <img src="logo_new_1_hd.png" class="logo-pulse"  alt="Office Logo">
         <div class="d-flex flex-column text-center">
           <h1 class="mb-0 fw-bold text-primary" style="font-size: clamp(2.1rem, 4vw, 2.8rem);">
             मेरठ का स्पर्श
@@ -279,7 +298,7 @@ function changeLanguage(lang) {
   
       <!-- Right: DAD Logo -->
       <div>
-        <img src="dad_logo.png" height="85" alt="DAD Logo">
+        <img src="dad_logo.png"  class="dad_logo"   alt="DAD Logo">
       </div>
   
     </div>
@@ -334,7 +353,7 @@ function changeLanguage(lang) {
   </div>
 
   <div class="hero-text">
-    <h1 class="display-4 fw-bold">स्पर्श आउटरीच कार्यक्रम </h1>
+    <h1 class="display-4 fw-bold">स्पर्श जागरूकता कार्यक्रम </h1>
     <h2 class="display-4 fw-bold text-warning">"मेरठ का स्पर्श"</h2>
     <h1 class="display-4 fw-bold">में आपका स्वागत है</h1>
 
